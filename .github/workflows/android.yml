@@ -1,0 +1,45 @@
+
+name: Build QuizMaster APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Build Android APK
+        run: |
+          npm install -g cordova@13
+          cordova create app com.quizmaster.app QuizMaster
+          cd app
+          cordova platform add android@15
+          cp ../index.html www/index.html
+          cp ../style.css www/style.css
+          cp ../script.js www/script.js
+          cordova build android
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: QuizMaster-APK
+          path: app/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+          
