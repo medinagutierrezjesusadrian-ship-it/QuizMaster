@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f6fa">
+  <title>QuizMaster</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+  <header>
+    <div>
+      <h1>QuizMaster<span>.</span></h1>
+      <p>Desafía tu mente</p>
+    </div>
+    <button id="themeBtn" class="icon-btn">🌙</button>
+  </header>
+
+  <section class="profile">
+    <div>
+      <small>BIENVENIDO A QUIZMASTER</small>
+      <h2>¿Cuánto sabes?</h2>
+      <p>Demuestra todo lo que sabes.</p>
+    </div>
+    <div class="brain">🧠</div>
+  </section>
+
+  <section class="stats">
+    <div><strong id="score">0</strong><small>Puntos</small></div>
+    <div><strong id="level">1</strong><small>Nivel</small></div>
+    <div><strong id="played">0</strong><small>Jugadas</small></div>
+  </section>
+
+  <section id="home">
+    <h3>Elige una categoría</h3>
+    <div id="categories" class="categories"></div>
+
+    <h3>Modo de juego</h3>
+    <div class="modes">
+      <button data-mode="normal">🎯 Niveles</button>
+      <button data-mode="infinite">♾️ Infinito</button>
+    </div>
+
+    <h3>Dificultad</h3>
+    <select id="difficulty">
+      <option value="easy">Fácil</option>
+      <option value="medium">Medio</option>
+      <option value="hard">Difícil</option>
+    </select>
+
+    <button id="startBtn" class="primary">Comenzar partida</button>
+
+    <div class="extra">
+      <button id="rankingBtn">🏆 Ranking</button>
+      <button id="statsBtn">📊 Estadísticas</button>
+    </div>
+  </section>
+
+  <section id="game" hidden>
+    <div class="game-top">
+      <button id="backBtn">← Volver</button>
+      <span id="questionCount">Pregunta 1</span>
+    </div>
+    <div class="progress">
+      <div id="progressBar"></div>
+    </div>
+    <p id="categoryLabel"></p>
+    <h2 id="question">Pregunta</h2>
+    <div id="answers"></div>
+    <p id="feedback"></p>
+    <button id="nextBtn" class="primary" hidden>Siguiente pregunta</button>
+  </section>
+
+  <section id="result" hidden>
+    <div class="result-icon">🏆</div>
+    <h2>¡Partida terminada!</h2>
+    <p id="resultText"></p>
+    <h1 id="finalScore">0</h1>
+    <p>Puntos obtenidos</p>
+    <button id="againBtn" class="primary">Jugar otra vez</button>
+    <button id="homeBtn" class="secondary">Volver al inicio</button>
+  </section>
+
+  <section id="ranking" hidden>
+    <h2>🏆 Ranking local</h2>
+    <div id="rankingList"></div>
+    <button class="secondary returnBtn">Volver</button>
+  </section>
+
+  <section id="statistics" hidden>
+    <h2>📊 Tus estadísticas</h2>
+    <div id="statisticsData"></div>
+    <button class="secondary returnBtn">Volver</button>
+  </section>
+
+  <footer>QUIZMASTER · APRENDE Y DIVIÉRTETE</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
